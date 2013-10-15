@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>European Debt Crisis: Timeline from 2009 to 2012 (v0.1)</title>
+
+
+    <!-- load styles -->
+    <!--<link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'/>-->
+    <link href='css/style.css' rel='stylesheet' type='text/css'/>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-19067049-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+</head>
+<body>
+
+<!--
+    This is the first version of the timeline. There are probably some bugs, issues, code smells
+    and performance issues in this version.
+
+    Changelog:
+        * 14-07-2012 - First version online after some quick cleanup of code
+-->
+
+<!-- setup the basic page layout -->
+<h3 class="page-header">European Debt Crisis: Timeline from 2009 to 2012</h3>
+
+<div class="explanation">
+    <p>
+        This visualization shows how the interest rates for the 10 year government bonds has changes
+        for the countries in the Eurozone from 2009 to 2012. This interest rate can be seen as an
+        indication of the financial stability of a specific country. If this rate is very high, it's
+        very hard for a country to refinance it's debt. This currently shows data to the 6th of July 2012.
+        You can drag the slider around at the bottom to see the interest rates visualized in the map. You
+        can also use the controls in the right top corner to start/stop an animation and speed/slow the animation.
+        While dragging or when the animation is running, interesting events that occured during the crisis are
+        shown at the bottom of the map.
+    </p>
+</div>
+
+<div id="main">
+
+    <!-- show the map, controls and the information bubbles -->
+    <div id="top_content">
+        <div id="date_content" style="position: absolute; top: 2px; left: 400px; width: 120px">
+            Please wait while content is being loaded.
+        </div>
+        <div id="bubble_wrapper" style="position: absolute; bottom: 2px;">
+            <div id="bubble_content"></div>
+        </div>
+        <div class="map" id="main_map"></div>
+        <div class="controls">
+            <img id="slower" src="data/icons/gtk_media_forward_rtl.png" width="20px"/>
+            <img id="stop" src="data/icons/gtk_media_stop.png" width="20px"/>
+            <img id="play" src="data/icons/gtk_media_play_ltr.png" width="20px"/>
+            <img id="faster" src="data/icons/gtk_media_forward_ltr.png" width="20px"/>
+        </div>
+    </div>
+
+    <!-- contains the timeline slider -->
+    <svg id="chart" width="100%">
+        <defs>
+            <linearGradient id="slider-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:rgb(0,0,0);stop-opacity:0.5"/>
+                <stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:0.1"/>
+            </linearGradient>
+            <filter id="f2" x="0" y="0">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+            </filter>
+        </defs>
+    </svg>
+</div>
+<div class="explanation">
+<p>
+
+</p>
+    </div>
+<div id="sources">
+    This timeline uses SVG, WebGL and RequestAnimationFrame and will run best on the latest Chrome versions of Firefox versions. It hasn't been tested on IE.
+    The basic layout for this timeline was recreated from the guys at http://www.tiki-toki.com. The interest rates are
+    based
+    on information from Bloomberg. The 3D countries are transformed from SVG and used map material from wikipedia
+    as its source. For more information on the technology behing this visualization look at http://www.smartjava.org.
+</div>
+
+<!-- load used external libraries -->
+<script type="text/javascript" src="js/libs/d3.v2.js"></script>
+<script type="text/javascript" src="js/libs/chroma.js"></script>
+<script type="text/javascript" src="js/libs/three.js"></script>
+<script type="text/javascript" src="js/libs/d3-threeD.js"></script>
+<script type="text/javascript" src="js/libs/d3.time.js"></script>
+<script type="text/javascript" src="js/libs/d3.csv.js"></script>
+<script type="text/javascript" src="js/libs/jquery-1.7.2.min.js"></script>
+
+<!-- define the events to show -->
+<script type="text/javascript" src="data/events.js"></script>
+
+<!-- load application libraries -->
+<script type="text/javascript" src="js/app/debt-util.js"></script>
+<script type="text/javascript" src="js/app/debt-constants.js"></script>
+<script type="text/javascript" src="js/app/debt-map.js"></script>
+<script type="text/javascript" src="js/app/debt-timeline.js"></script>
+<script type="text/javascript" src="js/app/debt-bubbles.js"></script>
+<script type="text/javascript" src="js/app/debt-app.js"></script>
+
+<script type="text/javascript">
+// create the app, this will load all the elements, data etc.
+var app = new DebtApp();
+</script>
+</body>
+</html>

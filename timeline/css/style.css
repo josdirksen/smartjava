@@ -1,0 +1,222 @@
+html {
+    /*background: url(background.png) no-repeat center center fixed;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: cover;*/
+    background-color: #232323;
+}
+
+body {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#chart {
+    height: 55px;
+}
+
+.day {
+    stroke: rgb(75, 75, 75);
+    stroke-width: 1;
+}
+
+.month-bottom {
+    stroke: rgb(75, 75, 75);
+    stroke-width: 1;
+}
+
+.month-top {
+    stroke: rgb(75, 75, 75);
+    stroke-width: 1;
+}
+
+.month-name {
+    stroke: rgb(75, 75, 75);
+    stroke-width: 1;
+    fill: rgb(75, 75, 75);
+    font-family: verdana;
+    font-size: x-small;
+}
+
+h2#currentDate {
+    color: #f0f8ff;
+    font-family: verdana;
+}
+
+/* ============================================================================================================================
+== TWITTER nicolasgallagher.com/pure-css-speech-bubbles/demo/
+** ============================================================================================================================ */
+
+.triangle-border::before {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 37px;
+    border-width: 15px 15px 0;
+    border-style: solid;
+    border-color: rgb(50,50,50) transparent;
+    display: block;
+    width: 0;
+}
+
+
+.triangle-border::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 40px;
+    border-width: 12px 12px 0;
+    border-style: solid;
+    border-color: white transparent;
+    display: block;
+    width: 0;
+}
+
+.triangle-border {
+    width: 200px;
+    font-family: verdana;
+    position:relative;
+    padding:15px;
+    margin:1em 0 3em;
+    border:3px solid rgb(50,50,50);
+    color:#333;
+    background:#fff;
+    /* css3 */
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+}
+
+
+
+.triangle-border p {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size:10px;
+
+}
+
+/* creates the triangle */
+.example-twitter:after {
+
+    /*border:15px solid transparent;*/
+    content:"";
+    position:absolute;
+    bottom:-13px; /* value = - border-top-width - border-bottom-width */
+    left:47px; /* value = (:before left) + (:before border-left) - (:after border-left) */
+    border-width:13px 13px 0;
+    border-style:solid;
+    border-color:#eee transparent;
+    /* reduce the damage in FF3.0 */
+    display:block;
+    width:0;
+}
+
+.triangle-border .date {
+    font-size:10px;
+}
+
+
+div#main {
+    margin-left: auto; margin-right: auto;
+    width: 900px;
+    height: 600px;
+    border: 4px solid;
+    border-radius: 5px;
+    border-color: #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: #000;
+    padding: 2px;
+}
+
+div#top_content {
+    height: 545px;
+    border-bottom: 2px solid;
+    border-color: #ccc;
+    margin-left: -2px;
+    margin-right: -2px;
+    margin-top: -2px;
+    padding: -0px;
+    position: relative;
+    overflow: hidden;
+}
+
+#europe {
+    margin: 0px;
+}
+
+#bubble_content {
+    margin-top: 50px;
+    position:relative;
+}
+
+.bubble {
+    position:absolute;
+}
+
+.page-header {
+    font-family: verdana;
+    color:#AAAAAA;
+    text-align: center;
+    font-size: x-large;
+    margin: 5px;
+}
+
+.days .day {
+    stroke: rgb(175, 175, 175);
+    stroke-width: 1;
+    fill: rgb(175, 75, 75);
+    font-family: verdana;
+    font-size: x-small;
+}
+
+.days rect.day {
+    fill: rgb(75, 75, 75);
+    stroke-width: 0;
+}
+
+div.controls {
+    border: 2px solid;
+    border-top-width: 0px;
+    border-color: #ccc;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: #777;
+    padding: 2px;
+    position: absolute; top:0px; right: 20px;
+}
+
+#date_content {
+    font-family: verdana;
+    color:#AAAAAA;
+    text-align: center;
+}
+
+#sources {
+    font-family: verdana;
+    color:#999999;
+    text-align: center;
+    font-size: x-small;
+    margin-left: auto; margin-right: auto;
+    width: 800px;
+}
+
+.explanation {
+    font-family: verdana;
+    color:#999999;
+    margin-left: auto; margin-right: auto;
+    width: 900px;
+    margin-bottom: 5px;
+    font-size: smaller;
+}
+
+.explanation p {
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
