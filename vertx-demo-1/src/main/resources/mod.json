@@ -1,0 +1,38 @@
+{
+
+  // Java verticle
+  "main":"org.smartjava.PingVerticle",
+
+  // In this example we also provide various other versions of the main verticle, you can uncomment this and
+  // play around:
+
+  // Java *source* verticle
+  //"main":"JavaSourcePingVerticle.java",
+
+  // Compiled Groovy verticle - note that they must be prefixed with 'groovy:' to distinguish them from compiled Java verticles
+  //"main":"groovy:com.mycompany.myproject.GroovyPingVerticle",
+
+  // Groovy *script* verticle
+  //"main": "GroovyVerticle.groovy",
+
+  // Ruby verticle
+  //"main":"ping_verticle.rb",
+
+  // JavaScript verticle
+  //"main": "ping_verticle.js",
+
+  // Python verticle
+  //"main": "ping_verticle.py",
+
+
+  // If your module is going to be registered in the Vert.x module registry you will also need the following
+  // mandatory fields
+  "description":"Put description of your module here",
+  "licenses": ["The Apache Software License Version 2.0"],
+  "author": "Joe Bloggs",
+
+  // Optional fields
+  "developers": ["Other Dev 1", "Other Dev 2"],
+  "keywords": ["gerbils", "cars", "cheese", "chocolate", "underpants", "herring"],
+  "homepage": "url to your project page"
+}
