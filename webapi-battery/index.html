@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Battery web api</title>
+    <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="js/battery.js"></script>
+    <link rel='stylesheet' type='text/css' href='css/battery.css'>
+</head>
+<body>
+
+<div id="box">
+    <div id="battery"></div>
+    <div id="text">
+        <span style="display: block;margin-bottom:15px;font-size: xx-large;"><strong>Battery
+            specifications</strong></span>
+        <span style="display: block" id="level">Battery level: unknown</span>
+        <span style="display: block" id="status">Charging status: unknown</span>
+        <span style="display: block" id="charged">Battery charged: unknown</span>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    // setup the image
+    var b = new Battery("assets/bat_empty.png", "assets/bat_full.png", 96, 168);
+    $("#battery").append(b.domElement);
+
+    // get the battery information
+    var battery = navigator.battery || navigator.webkitBattery || navigator.mozBattery;
+
+    // get the battery information to be displayed
+    $('#level').text("Battery level: " + Math.round(battery.level * 100) + "%");
+    $('#status').text("Charging status: " + ((battery.charging) ? "true" : "false"));
+    if (battery.charging) {
+        $('#charged').text("Battery time to charge: " + battery.chargingTime);
+    } else {
+        $('#charged').text("Battery time left: " + (Math.round(battery.dischargingTime / 60)) + " minutes");
+    }
+    b.updateBattery(battery.level * 100);
+
+
+    // when the loader is connected
+    battery.addEventListener("chargingchange", function (e) {
+        $('#status').text("Charging status: " + ((battery.charging) ? "true" : "false"));
+    }, false);
+
+    // when charging time changes update the time to charge / time left
+    battery.addEventListener("chargingtimechange", function (e) {
+        if (battery.charging) {
+            $('#charged').text("Battery time to charge: " + battery.chargingTime);
+        } else {
+            $('#charged').text("Battery time left: " + (Math.round(battery.dischargingTime / 60)) + " minutes");
+        }
+
+    }, false);
+
+    // when dischargingtime changes update the time to charge / time left
+    battery.addEventListener("dischargingtimechange", function (e) {
+        if (battery.charging) {
+            $('#charged').text("Battery time to charge: " + (Math.round(battery.dischargingTime / 60)) + " minutes");
+        } else {
+            $('#charged').text("Battery time left: " + (Math.round(battery.dischargingTime / 60)) + " minutes");
+        }
+    }, false);
+
+    // listener that is notified when the level changes
+    battery.addEventListener("levelchange", function (e) {
+        $('#level').text("Battery level: " + Math.round(battery.level * 100) + "%");
+        b.updateBattery(100 * battery.level)
+    }, false);
+
+</script>
+
+</body>
+</html>
