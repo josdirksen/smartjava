@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="helloworld">
+<head>
+    <meta charset="UTF-8">
+    <title>Minimal angular.js</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <style>
+        .tile {
+            background: #ffeeee;
+        }
+    </style>
+</head>
+<body>
+
+<div class="row">
+    <div class="large-12 columns">
+        <h1>Sample angular.js / foundation / scala.js app</h1>
+    </div>
+</div>
+
+<div ng-view></div>
+
+<!-- Include Scala.js compiled code -->
+<script type="text/javascript" src="../../../target/scala-2.11/scalajs-fastopt.js"></script>
+<script type="text/javascript" src="../../../target/scala-2.11/scalajs-jsdeps.js"></script>
+<script type="text/javascript" src="../../../target/scala-2.11/scalajs-launcher.js"></script>
+
+</body>
+
+</html>
